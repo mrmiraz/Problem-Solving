@@ -1,0 +1,37 @@
+// Code in java 
+
+import java.util.Scanner;
+
+public class CodeFoces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int card = sc.nextInt();
+        int[] cardNumber = new int[card];
+        for(int i = 0; i < card; i++){
+            cardNumber[i] = sc.nextInt();
+        }
+        int left = 0;
+        int right = card - 1;
+        int i = 1;
+        int serejaCount = 0;
+        int dimaCount = 0;
+        while(left <= right && left < card){
+            if(i % 2 != 0){
+                serejaCount += Math.max(cardNumber[left], cardNumber[right]);
+            }
+            else{
+                dimaCount += Math.max(cardNumber[left], cardNumber[right]);
+            }
+            if(cardNumber[left] > cardNumber[right]){
+                left++;
+            }
+            else{
+                right--;
+            }
+            i++;
+        }
+        System.out.println(serejaCount + " "+ dimaCount);
+    }
+}
+// Code in c++

@@ -1,0 +1,26 @@
+// Code in java 
+
+
+import java.util.Scanner;
+
+public class CodeFoces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int totalStone = sc.nextInt();
+        String colorCode = sc.next();
+        int left = 0, right = 1;
+        int minCount = 0;
+        while(right < colorCode.length()){
+            if(colorCode.charAt(left) == colorCode.charAt(right)){
+                right++;
+                minCount++;
+            }
+            else{
+                left = right;
+                right += 1;
+            }
+        }
+        System.out.println(minCount);
+    }
+}

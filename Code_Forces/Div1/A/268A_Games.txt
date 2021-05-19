@@ -1,0 +1,25 @@
+// Code with java 
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int totalTeam = sc.nextInt();
+        int[][] uniformColor = new int[totalTeam][2];
+        for(int i = 0; i < totalTeam; i++){
+            uniformColor[i][0] = sc.nextInt();
+            uniformColor[i][1] = sc.nextInt();
+        }
+        int replaceHostUniform = 0;
+        for(int i = 0; i < totalTeam; i++){
+            for(int j = 0; j < totalTeam; j++){
+                if(uniformColor[i][0] == uniformColor[j][1]){
+                    replaceHostUniform++;
+                }
+            }
+        }
+        System.out.println(replaceHostUniform);
+    }
+}

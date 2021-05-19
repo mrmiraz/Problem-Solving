@@ -1,0 +1,25 @@
+// Code with java
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int yakkoPoint = sc.nextInt();
+        int wakkoPoint = sc.nextInt();
+        int dotFairPoint = 6 - Math.max(yakkoPoint, wakkoPoint) + 1;
+        if(6 % dotFairPoint == 0 ){
+            System.out.println("1/" + (6/dotFairPoint));
+        }
+        else if( dotFairPoint == 4){
+            System.out.println("2/3");
+        }
+        else if( dotFairPoint == 5){
+            System.out.println("5/6");
+        }
+        else if( dotFairPoint == 6){
+            System.out.println("1/1");
+        }
+    }
+}

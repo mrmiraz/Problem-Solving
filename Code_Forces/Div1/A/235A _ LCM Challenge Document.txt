@@ -1,0 +1,25 @@
+// Code in java
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long number = sc.nextInt();
+        long maxLcm;
+        if (number == 1 || number == 2) {
+            maxLcm = number;
+        }
+        else if (number % 2 == 0) {
+            if (number % 3 == 0) {
+                maxLcm = (number - 1) * (number - 2) * (number - 3);
+            } else {
+                maxLcm = number * (number - 1) * (number - 3);
+            }
+        } else {
+            maxLcm = number * (number - 1) * (number - 2);
+        }
+        System.out.println(maxLcm);
+    }
+}

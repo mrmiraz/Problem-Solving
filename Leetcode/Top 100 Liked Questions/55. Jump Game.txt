@@ -1,0 +1,11 @@
+class Solution {
+    public boolean canJump(int[] nums) {
+        int pointerIndex = nums.length-1;
+        for(int i = pointerIndex; i >= 0; i--){
+            if(nums[i]+i >= pointerIndex){
+                pointerIndex = i;
+            }
+        }
+        return pointerIndex == 0;
+    }
+}

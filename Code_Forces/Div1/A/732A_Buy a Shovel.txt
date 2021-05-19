@@ -1,0 +1,19 @@
+// Code with java
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int shovelPrice = sc.nextInt();
+        int dominationBurles = sc.nextInt();
+        int totalPrice = shovelPrice;
+        int shovelNumber = 1;
+        while(totalPrice % 10 != dominationBurles && totalPrice % 10 != 0){
+            shovelNumber+= 1;
+            totalPrice += shovelPrice;
+        }
+        System.out.println(shovelNumber);
+    }
+}

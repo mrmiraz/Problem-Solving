@@ -1,0 +1,21 @@
+// Code with java 
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String itemName = sc.nextLine();
+        int pointer = 'a';
+        int totalRotation = 0;
+        for(int i = 0; i < itemName.length(); i++){
+            int currentChar = itemName.charAt(i);
+            int minPointer = Math.min(pointer, currentChar);
+            int maxPointer = Math.max(pointer, currentChar);
+            totalRotation += Math.min((maxPointer - minPointer), (minPointer + 26 - maxPointer));
+            pointer = currentChar;
+        }
+        System.out.println(totalRotation);
+    }
+}

@@ -1,0 +1,27 @@
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        Arrays.sort(nums);
+         int count = 0;
+         int m = 0;
+         int gap;
+        if(nums == null || nums.length == 0)return 1;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] < 0){
+                m++;
+                if(m == nums.length)return 1;
+            }
+            if(nums[i] > 0){
+              count++;
+              if(count == 1){
+                  gap = nums[i] - 0;
+                  if(gap > 1) return 1;
+              }
+              else{
+                    gap = nums[i] - nums[i -1];
+                    if(gap > 1)  return nums[i - 1]+1;
+             }
+            }
+        }
+        return nums[nums.length-1]+1;
+    }
+}

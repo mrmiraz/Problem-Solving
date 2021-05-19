@@ -1,0 +1,40 @@
+// Code in Java
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int friends = sc.nextInt();
+        int fenceHeight = sc.nextInt();
+        int count = 0;
+        for(int i = 0; i < friends; i++){
+            if(sc.nextInt() > fenceHeight) count+= 2;
+            else
+                count+= 1;
+        }
+        System.out.println(count);
+    }
+}
+
+// Code in c++
+
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+    int friends;
+    std::cin >> friends;
+    int fenceHeight ;
+    std:: cin >> fenceHeight;
+    int count = 0;
+    for(int i = 0; i < friends; i++){
+        int friendsHeight;
+        cin >> friendsHeight;
+        if(friendsHeight > fenceHeight) count+= 2;
+        else
+            count+= 1;
+    }
+    std::cout << count << std::endl;
+    return 0;
+}

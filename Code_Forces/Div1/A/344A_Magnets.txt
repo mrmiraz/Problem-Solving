@@ -1,0 +1,47 @@
+// Code with java
+
+import java.util.Scanner;
+
+public class CodeFoces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int magnetNumber = sc.nextInt();
+        String currentMagnet = sc.next();
+        int groupCount = 1;
+        for (int i = 1; i < magnetNumber; i++) {
+            String nextMagnet = sc.next();
+            if (currentMagnet.charAt(1) == nextMagnet.charAt(0)) {
+                groupCount++;
+            }
+            currentMagnet = nextMagnet;
+        }
+        System.out.println(groupCount);
+    }
+}
+
+// Code with C++
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int magnetNumber;
+    std::cin >> magnetNumber;
+    string currentMagnet;
+    string nextMagnet;
+    std::cin >> currentMagnet;
+    int groupCount = 1;
+    for(int i = 1; i < magnetNumber; i++){
+        std::cin >> nextMagnet;
+        if(currentMagnet[1] == nextMagnet[0]){
+            groupCount+= 1;
+        }
+        currentMagnet = nextMagnet;
+    }
+    std::cout << groupCount << std::endl;
+
+    return 0;
+}

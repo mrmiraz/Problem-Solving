@@ -1,0 +1,19 @@
+// Code with java
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String stoneColor = sc.nextLine();
+        String instruction = sc.nextLine();
+        int stoneColorPointer = 0;
+        for(int i = 0; i < instruction.length(); i++){
+            if(instruction.charAt(i) == stoneColor.charAt(stoneColorPointer)){
+                stoneColorPointer += 1;
+            }
+        }
+        System.out.println(stoneColorPointer + 1);
+    }
+}

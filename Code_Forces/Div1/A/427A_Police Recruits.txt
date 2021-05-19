@@ -1,0 +1,23 @@
+// Code with java 
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int eventNumber = sc.nextInt();
+        int count = 0;
+        int threat = 0;
+        for(int i = 0; i < eventNumber; i++){
+            int eventOccurence = sc.nextInt();
+            if(count == 0 && eventOccurence == -1){
+                threat++;
+            }
+            else{
+                count += eventOccurence;
+            }
+        }
+        System.out.println(threat);
+    }
+}

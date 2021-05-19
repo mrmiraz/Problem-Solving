@@ -1,0 +1,26 @@
+// Code with java 
+
+import java.util.Scanner;
+
+public class CodeForces {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int totalOrange = sc.nextInt();
+        int mixerSize = sc.nextInt();
+        int wasteCollectorSize = sc.nextInt();
+        int[] orangeSize = new int[totalOrange];
+        int wasteSize = 0, emptyWasteSectionCount =  0;
+        for(int i = 0; i < totalOrange; i++){
+            orangeSize[i] = sc.nextInt();
+            if(orangeSize[i] <= mixerSize){
+                wasteSize += orangeSize[i];
+                if(wasteSize > wasteCollectorSize ){
+                    emptyWasteSectionCount+= 1;
+                    wasteSize = 0;
+                }
+            }
+        }
+        System.out.println(emptyWasteSectionCount);
+    }
+}
