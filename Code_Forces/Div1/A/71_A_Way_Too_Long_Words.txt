@@ -1,0 +1,24 @@
+import java.util.Scanner;
+ 
+public class Solution {
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt(sc.nextLine());
+        String[] ans = new String[n];
+        for (int i = 0; i < n; i++) {
+            String word = sc.nextLine();
+            String replaceWord = word;
+            if (word.length() > 10) {
+                replaceWord = Character.toString(word.charAt(0))
+                        + Integer.toString(word.length() - 2)
+                        + Character.toString(word.charAt(word.length() - 1));
+            }
+            ans[i] = replaceWord;
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.println(ans[i]);
+        }
+ 
+    }
+}

@@ -1,0 +1,29 @@
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String firstLine = sc.nextLine();
+        int[] arr = new int[(firstLine.length() / 2) + 1];
+
+        int i = 0;
+        StringTokenizer st = new StringTokenizer(firstLine, "+");
+        while (st.hasMoreElements()) {
+            arr[i] = Integer.parseInt(st.nextToken());
+            i++;
+        }
+        Arrays.sort(arr);
+        for (i = 0; i < arr.length; i++) {
+            if (i == arr.length - 1) {
+                System.out.print(arr[i]);
+            } else {
+                System.out.print(arr[i] + "+");
+            }
+
+        }
+
+    }
+}

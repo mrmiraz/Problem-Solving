@@ -1,0 +1,97 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        LinkedList<Integer> list1 = new LinkedList<>();
+        LinkedList<Integer> list2 = new LinkedList<>();
+        LinkedList<Integer> list3 = new LinkedList<>();
+        String firstLine = scan.nextLine();
+        String nextLine = scan.nextLine();
+        int n = Integer.parseInt(new StringTokenizer(firstLine).nextToken());
+        int i = 1;
+        StringTokenizer st = new StringTokenizer(nextLine);
+        while (i <= n) {
+            int t = Integer.parseInt(st.nextToken());
+            if (t == 1) {
+                list1.add(i);
+            } else if (t == 2) {
+                list2.add(i);
+            } else {
+                list3.add(i);
+            }
+
+            i++;
+        }
+
+        int team = 0;
+        LinkedList<Integer> teamMemberIndex = new LinkedList<>();
+
+        while (!list1.isEmpty() && !list2.isEmpty() && !list3.isEmpty()) {
+            teamMemberIndex.add(list1.removeFirst());
+            teamMemberIndex.add(list2.removeFirst());
+            teamMemberIndex.add(list3.removeFirst());
+            team++;
+        }
+
+        System.out.println(team);
+        while (!teamMemberIndex.isEmpty()) {
+            System.out.println(teamMemberIndex.removeFirst() + " " + teamMemberIndex.removeFirst() + " " + teamMemberIndex.removeFirst());
+        }
+
+    }
+}
+
+/// Another solution
+
+package learning.Solution;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String firstLine = scan.nextLine();
+        String nextLine = scan.nextLine();
+        int n = Integer.parseInt(new StringTokenizer(firstLine).nextToken());
+
+        StringTokenizer st = new StringTokenizer(nextLine);
+        int i = 1;
+        HashMap<Integer, LinkedList<Integer>> map = new HashMap<>();
+        while (i <= n) {
+            int t = Integer.parseInt(st.nextToken());
+            if (!map.containsKey(t)) {
+                map.put(t, new LinkedList<>());
+            }
+            map.get(t).add(i);
+            i++;
+        }
+        i = 1;
+        int teamNumber = n;
+        while (i <= 3) {
+            if (map.containsKey(i)) {
+                teamNumber = Math.min(teamNumber, map.get(i).size());
+            }
+            else{
+                teamNumber = 0;
+            }
+            i++;
+        }
+
+        System.out.println(teamNumber);
+        while (teamNumber > 0) {
+            System.out.println(map.get(1).get(teamNumber - 1)
+                    + " " + map.get(2).get(teamNumber - 1)
+                    + " " + map.get(3).get(teamNumber - 1));
+            teamNumber--;
+        }
+
+    }
+}

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String firstLine = sc.nextLine();
+        StringTokenizer st = new StringTokenizer(firstLine);
+        long n = Integer.parseInt(st.nextToken());
+        long totalPack = Integer.parseInt(st.nextToken());
+        int distress = 0;
+        for(int i = 0; i < n; i++){
+            String nextLine = sc.nextLine();
+            st = new StringTokenizer(nextLine);
+            char sign = st.nextToken().charAt(0);
+            long newPack = Integer.parseInt(st.nextToken());
+            if(sign == '+'){
+                totalPack += newPack;
+            }
+            else{
+                if(totalPack < newPack){
+                    distress++;
+                }
+                else{
+                    totalPack-= newPack;
+                }
+            }
+        }
+        System.out.println(totalPack + " " + distress);
+
+    }
+}

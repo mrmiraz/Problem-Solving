@@ -1,0 +1,19 @@
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        ArrayList<Integer> curList = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        rec(0, nums, curList, ans);
+        return ans;
+    }
+    
+    public void rec(int i, int[] nums, ArrayList<Integer> curList, List<List<Integer>> ans){
+        if(i == nums.length){
+            ans.add(new ArrayList<>(curList));
+            return;
+        }
+        curList.add(nums[i]);
+        rec(i+1, nums, curList, ans);
+        curList.remove(curList.size()-1);
+        rec(i+1, nums, curList, ans);
+    }
+}

@@ -1,0 +1,60 @@
+class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        if(matrix.length == 0){
+            return 0;
+        }
+        int row = matrix.length;
+        int col = matrix[0].length;
+        int[][] dp = new int[row][col];
+        int maxArea = 0;
+        for(int i = 0; i < row; i++){
+            for(int j = 0; j < col; j++){
+                dp[i][j] = matrix[i][j] == '1'? 1: 0;
+                if(i != 0){
+                    if(dp[i][j] == 1)
+                    dp[i][j] = 1 + dp[i-1][j];
+                }
+            }
+        }
+        for(int i = 0; i < row; i++){
+            Stack<Integer> st = new Stack();
+                int[] lb = new int[col];
+                lb[0] = -1;
+                st.push(0);
+            for(int j = 1; j < col; j++){
+                while(!st.isEmpty() &&  dp[i][j] <= dp[i][st.peek()]){
+                    st.pop();
+                }
+                if(st.isEmpty()){
+                    lb[j] = -1;
+                }else{
+                    lb[j] = st.peek();
+                }
+                st.push(j);
+                
+            }
+            st = new Stack<>();
+            int[] rb = new int[col];
+            rb[col-1] = col;
+            st.push(col - 1);
+            
+            for(int j = col - 2; j >= 0; j--){
+                while(!st.isEmpty() && dp[i][j] <= dp[i][st.peek()]){
+                    st.pop();
+                }
+                if(st.isEmpty()){
+                    rb[j] = col;
+                }else{
+                    rb[j] = st.peek();
+                }
+                st.push(j);
+            }
+            for(int j = 0; j < col; j++){
+                int area = (rb[j] - lb[j] -1)*dp[i][j];
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+        return maxArea;
+    }
+}
+//https://www.youtube.com/watch?v=dAVF2NpC3j4
