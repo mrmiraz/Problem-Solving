@@ -32,3 +32,4 @@ class Solution {
         return sqrt*sqrt == n;
     }
 }
+//https://www.youtube.com/watch?v=1xfx6M_GqFk
