@@ -13,13 +13,13 @@ public class Solution {
             map.put(key, 1);
         for(int i = 1; i < n; i++){
             if(s.charAt(i) == 'B'){
-                if(s.charAt(i-1) == 'W'){
+                if(s.charAt(i-1) == 'W')
                     map.put(++key, 1);
-                }
                 else
                     map.put(key, map.get(key)+1);
             }     
         }
+        
         System.out.println(map.size());
         for(int i : map.values()){
             System.out.print(i + " ");
